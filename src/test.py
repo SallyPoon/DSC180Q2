@@ -163,10 +163,11 @@ def plotter(odom_data,imu_data, yaw_data, outdir):
     plt.savefig(os.path.join(outdir, 'odom_plot.png'))
     print('odom plot success!')
     print("Successfully written all plots to destination")
+    
     erpm = [2.418573, 2.72192, 3.0153, 2.1984, 2.0407]
     tuning = pd.DataFrame(data = erpm, index = ['4412','4912','5412','3912','3412'], columns =  ['distance'])
     tuning['off_by'] = tuning['distance'] - 2.0
-    print(tuning)
+    tuning.to_csv(os.path.join(outdir, 'tuning.csv'),index = False)
     
 if __name__ == '__main__':
     main()
