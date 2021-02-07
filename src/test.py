@@ -57,14 +57,14 @@ def plotter(odom_data,imu_data, yaw_data, outdir):
     df_imu['Time'] - df_imu['Time'].min()
     
     plt.plot(df_imu['Time'], df_imu['linear_acceleration.x'])
-    plt.title('Razor IMU X-Acceleration')
+    plt.title('IMU X-Acceleration')
     plt.xlabel('Time')
     plt.ylabel('Acceleration (m/s^2)')
     plt.savefig(os.path.join(outdir, 'accel_x_plt.png'))
     print('x-acceleration plot success!')
     
     plt.plot(df_imu['Time'], df_imu['linear_acceleration.y'])
-    plt.title('Razor IMU Y-Acceleration')
+    plt.title('IMU Y-Acceleration')
     plt.xlabel('Time')
     plt.ylabel('Acceleration (m/s^2)')
     plt.savefig(os.path.join(outdir, 'accel_y_plot.png'))
@@ -78,14 +78,14 @@ def plotter(odom_data,imu_data, yaw_data, outdir):
     print('scatter-acceleration plot success!')
     
     plt.hist(df_imu['linear_acceleration.x'], bins=None)
-    plt.title('Razor IMU X-Acceleration Distribution')
+    plt.title('IMU X-Acceleration Distribution')
     plt.xlabel('x')
     plt.ylabel('Frequency')
     plt.savefig(os.path.join(outdir, 'accel_x_hist.png'))
     print('x-acceleration hist plot written successfully!')
     
     plt.hist(df_imu['linear_acceleration.y'], bins=None)
-    plt.title('Razor IMU X-Acceleration Distribution')
+    plt.title('IMU X-Acceleration Distribution')
     plt.xlabel('y')
     plt.ylabel('Frequency')
     plt.savefig(os.path.join(outdir, 'accel_y_hist.png'))
