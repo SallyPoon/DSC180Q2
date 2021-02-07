@@ -26,7 +26,7 @@ def tester(indir, outdir):
 
     print('Output directory created successfully')
 
-    bag_path = os.path.join(indir, '2020-01-25-00-01-16.bag')
+    bag_path = os.path.join(indir, '2021-01-25-00-01-16.bag')
     b = bagreader(bag_path)
 
     imu_data = b.message_by_topic('/imu')
