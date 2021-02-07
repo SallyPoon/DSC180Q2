@@ -38,7 +38,7 @@ def tester(indir, outdir):
     df_yaw = pd.read_csv(yaw_data)
     df_yaw.to_csv(os.path.join(outdir,'yaw_data_test.csv'))
     
-    odometry_path = os.path.join(indir, '2020-01-25-18-09-47.bag')
+    odometry_path = os.path.join(indir, '2021-01-25-18-09-47.bag')
     bag = bagreader(odometry_path)
     odom_data = bag.message_by_topic('/vesc/odom')
     df_odom = pd.read_csv(odom_data)
