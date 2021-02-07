@@ -1,0 +1,6 @@
+{
+    "IMU-feats": ["x", "y", "z", "position"],
+    "IMU-outfile": "data/raw/IMU-Data-Sheet1.csv",
+    "Odom-feats": ["x", "y","w","secs"],
+    "Odom-outfile": "data/raw/Odometry.csv"
+}
