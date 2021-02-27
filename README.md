@@ -2,7 +2,7 @@
 
 We are Team 4 in the Autonomous Vehicles Data Science Capstone Project. Our project revolves around the IMU, Odometry efforts while we collectively work to build a 1/5 scale racing autonomous vehicle.
 
-Developed by: Pranav Deshmane and Sally Poo
+Developed by: Pranav Deshmane and Sally Poon
 
 For this project we will be using the F110th Odometry files to gather odometry data using our robot car and integrating, calibrating, and verifying the OpenLog Artemis IMU for our project.
 
