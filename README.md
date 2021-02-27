@@ -12,3 +12,16 @@ For this project we will be using the F110th Odometry files to gather odometry d
 * Sally developed Odometry.ipynb, run.py, eda.py, conversion.py
 * Pranav developed Readme, run.py, test.py, IMU.ipynb
 
+## IMU
+
+### OpenLog Artemis IMU
+
+### Calibration
+
+### Heading/Visualization
+
+## Odometry
+
+### Tuning
+
+### Position Estimate
