@@ -43,6 +43,18 @@ def tester(indir, outdir):
     odom_data = bag.message_by_topic('/vesc/odom')
     df_odom = pd.read_csv(odom_data)
     df_odom.to_csv(os.path.join(outdir,'odom_data_test.csv'))
+   
+    odometry_path = os.path.join(indir, '2021-01-25-18-09-47.bag')
+    bag = bagreader(odometry_path)
+    odom_data = bag.message_by_topic('/vesc/odom')
+    df_odom = pd.read_csv(odom_data)
+    df_odom.to_csv(os.path.join(outdir,'odom_data_test.csv'))
+ 
+    odometry_path = os.path.join(indir, '2021-01-25-18-09-47.bag')
+    bag = bagreader(odometry_path)
+    odom_data = bag.message_by_topic('/vesc/odom')
+    df_odom = pd.read_csv(odom_data)
+    df_odom.to_csv(os.path.join(outdir,'odom_data_test.csv'))
 
     print('Extracted .bag data and written to destination successfully')
     
