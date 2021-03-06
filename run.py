@@ -3,7 +3,7 @@ import sys
 import json
 sys.path.insert(0, 'src')
 from test import tester, plotter
-from conversion_modify import convert
+from conversion import convert
 from eda import plots
 
 def main(targets):
@@ -18,7 +18,7 @@ def main(targets):
         print('Completed. Plots are saved.')
     if 'conversion' in targets:
         convert(**data_cfg)
-        print('Raw Data converted to csv')
+        print('Raw Data Bags converted to csv')
     if 'eda' in targets:
         data = plots(**eda_cfg)
         print('Data plotted')
