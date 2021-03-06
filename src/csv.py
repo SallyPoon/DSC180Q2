@@ -8,7 +8,7 @@ import seaborn as sea
 import matplotlib.pyplot as plt
 import math
 
-def convert(indir, outdir):
+def converter(indir, outdir):
     dir = "data"
     parent_dir = "./"
     path = os.path.join(parent_dir, dir)
@@ -74,3 +74,5 @@ def convert(indir, outdir):
     odom_data = bag.message_by_topic('/vesc/odom')
     df_odom_5612 = pd.read_csv(odom_data)
     df_odom.to_csv(os.path.join(outdir,'df_odom_5612.csv'))
+if __name__ == '__main__':
+    main()

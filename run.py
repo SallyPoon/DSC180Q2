@@ -5,6 +5,7 @@ sys.path.insert(0, 'src')
 from test import tester, plotter
 from conversion import convert
 from eda import plots
+from csv import converter
 
 def main(targets):
     data_cfg = json.load(open('config/conversion.json'))
@@ -22,6 +23,9 @@ def main(targets):
     if 'eda' in targets:
         data = plots(**eda_cfg)
         print('Data plotted')
+    if 'csv' in targets:
+        data = tester(**data_cfg)
+        print('Data converted to csv')
     return
 
 
