@@ -100,7 +100,7 @@ def plotter(odom_data,imu_data, yaw_data, outdir):
     plt.plot(df_odom_3412['pose.pose.position.x'], [0] * len(df_odom_3412))
     plt.xlabel('Distance in meters')
     plt.title("ERPM_Gain 3412")
-    plt.xticks(np.arange(0, 2.5 ,0.2)
+    plt.xticks(np.arange(0, 2.5 ,0.2))
     plt.savefig(os.path.join(outdir, 'ERPM_Gain_3412.png'))
     print('ERPM_Gain 3412 success!')
                
