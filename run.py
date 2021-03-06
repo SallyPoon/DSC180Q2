@@ -17,8 +17,8 @@ def main(targets):
         vis = plotter(**test_vis_cfg)
         print('Completed. Plots are saved.')
     if 'conversion' in targets:
-        data = tester(**data_cfg)
-        print('Data converted to csv')
+        convert(**data_cfg)
+        print('Raw Data Bags converted to csv')
     if 'eda' in targets:
         data = plots(**eda_cfg)
         print('Data plotted')

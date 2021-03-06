@@ -7,47 +7,70 @@ import pandas as pd
 import seaborn as sea
 import matplotlib.pyplot as plt
 import math
+from glob import glob
+
+
+def bagOpener(bag_path, topic_name):
+	
+	output_path = bag_path.replace('raw', 'clean').replace('bag', 'csv')
+
+	split_path_arr = output_path.split("/")
+
+	topic_path = split_path_arr[0] + "/" + split_path_arr[1] + "/" + split_path_arr[2]
+
+	if not os.path.exists(topic_path):
+		print(topic_path)
+		os.mkdir(topic_path)
+
+	b = bagreader(bag_path)
+	data = b.message_by_topic(topic_name)
+	df = pd.read_csv(data)
+	df.to_csv(output_path)
+
+	shutil.rmtree(bag_path.replace(".bag", ""))
+
+	return
+
 
 def convert(indir, outdir):
-    dir = "data"
-    parent_dir = "./"
-    path = os.path.join(parent_dir, dir)
-    
-    #reset if needed
-    if (os.path.exists(path) and os.path.isdir(path)):
-        shutil.rmtree(path)
-    
-    print(path)
-    print(indir)
-    print(outdir)
+	
+	if (os.path.exists(outdir) and os.path.isdir(outdir)):
+		shutil.rmtree(outdir)
+	
+	os.mkdir(outdir)
 
-    os.mkdir(path)
-    os.mkdir(outdir)
+	print('Output directory created successfully')
 
-    print('Output directory created successfully')
+	data_raw_folders = glob(indir+"/*")
 
-    bag_path = os.path.join(indir, '2020-12-10-00-01-16.bag')
-    b = bagreader(bag_path)
+	for fold in data_raw_folders:
+		
+		name = fold.split("/")[-1]
+		topic_name = ""
 
-    imu_data = b.message_by_topic('/imu')
-    df_imu = pd.read_csv(imu_data)
-    df_imu.to_csv(os.path.join(outdir,'imu_data_test.csv'))
+		if not os.path.isdir(fold):
+			continue
+
+		if name == 'vesc_odom':
+			topic_name = '/vesc/odom'
+
+		elif name == 'razor_yaw':
+			topic_name = '/razor/yaw'
+
+		elif name == 'razor_imu':
+			topic_name = '/razor/imu'
+
+		else:
+			continue
+
+		for f in glob(fold+"/*"):
+			bagOpener(f, topic_name)
 
 
-    yaw_data = b.message_by_topic('/yaw')
-    df_yaw = pd.read_csv(yaw_data)
-    df_yaw.to_csv(os.path.join(outdir,'yaw_data_test.csv'))
-    
-    odometry_path = os.path.join(indir, '2020-12-01-18-09-47.bag')
-    bag = bagreader(odometry_path)
-    odom_data = bag.message_by_topic('/vesc/odom')
-    df_odom = pd.read_csv(odom_data)
-    df_odom.to_csv(os.path.join(outdir,'odom_data_test.csv'))
-
-    print('Extracted .bag data and written to destination successfully')
-    
-    return
+	print('Extracted .bag data and written to destination successfully')
+	
+	return
 
 
 if __name__ == '__main__':
-    main()
+	main()
