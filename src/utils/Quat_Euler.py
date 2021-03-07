@@ -1,3 +1,5 @@
+import math
+
 #Quaternion and Euler angle conversion modules
 
 """
