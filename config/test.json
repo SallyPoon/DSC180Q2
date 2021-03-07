@@ -17,7 +17,7 @@
 				         {"f": "data/testclean/razor_yaw/yaw_90_to_180_undershoot.csv", "r": null}
 				     	],
 
-			"S_Line": ["data/clean/razor_yaw/yaw_80.csv"]
+			"S_Line": ["data/testclean/razor_yaw/yaw_80.csv"]
 				
 			},
 
