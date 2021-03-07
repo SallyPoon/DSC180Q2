@@ -8,6 +8,7 @@ import seaborn as sea
 import matplotlib.pyplot as plt
 import math
 import numpy as np
+from .utils.Quat_Euler import euler_from_quaternion
 
 # IMU Mount Analysis Plots
 
@@ -32,6 +33,43 @@ def mounting_imu_plot(filename, outdir):
     plt.savefig(os.path.join(outdir, "Mounting_" + name + ".png"))
     print("Mounting " + name + ' plot success!')
 
+def mounting_yaw_plot(filename, outdir):
+
+    df_imu = pd.read_csv(filename)
+    df_imu['Time'] = df_imu['Time'] - df_imu['Time'].min()
+
+    quat = np.array([df_imu['orientation.x'], 
+                 df_imu['orientation.y'], 
+                 df_imu['orientation.y'], 
+                 df_imu['orientation.z']])
+
+    quat = quat.reshape(len(quat[0]), 4)
+
+    temp1 = [euler_from_quaternion(arr[0], arr[1], arr[2], arr[3]) for arr in quat]
+
+    yaw_array = [t[2] for t in temp1]
+    yaw_deg = [x*180/math.pi for x in yaw_array]
+
+    plt.figure(figsize=(10,8))
+    plt.plot(df_imu['Time'], yaw_deg)
+    plt.axhline(y=0, color='red', xmin=0.04, xmax=0.96)
+    plt.title('Yaw', fontsize=20)
+
+    plt.xlabel('Time', fontsize=20)
+    plt.ylabel('Yaw (deg)', fontsize=20)
+
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
+
+    name = filename.split("/")[-1]
+    name = name.split(".")[0]
+
+    plt.savefig(os.path.join(outdir, "Mounting_Yaw_" + name + ".png"))
+    print("Mounting Yaw " + name + ' plot success!')
+
+
+
+
 # IMU Half Arc Analysis Plots
 
 def half_arc_yaw_plot(filename, plot_range, outdir):
@@ -51,6 +89,29 @@ def half_arc_yaw_plot(filename, plot_range, outdir):
 
     plt.savefig(os.path.join(outdir,  "Half_Arc_" + name + ".png"))
     print("Half Arc IMU " + name + ' plot success!')
+
+# IMU Straight Line Analysis Plots
+def straight_line_yaw_plot(filename, outdir):
+    df_imu = pd.read_csv(filename)
+    df_imu['Time'] - df_imu['Time'].min()
+
+    plt.figure(figsize=(10,8))
+    plt.plot(df_imu['Time'], df_imu['data'])
+
+    plt.axhline(y=90, color='red', xmin=0.04, xmax=0.96)
+
+    plt.title('Straight Line Yaw Test', fontsize=20)
+    plt.xlabel('Time', fontsize=20)
+    plt.ylabel('Yaw (deg)', fontsize=20)
+
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
+
+    name = filename.split("/")[-1]
+    name = name.split(".")[0]
+
+    plt.savefig(os.path.join(outdir,  "Straight_Line_Yaw_" + name + ".png"))
+    print("Straight Line Yaw " + name + ' plot success!')
 
 # IMU topic data plots first
 def report_plots(filename, outdir):
@@ -146,6 +207,23 @@ def odom_plots(filename, outdir):
     plt.savefig(os.path.join(outdir, 'ERPM_Gain_' + name + '.png'))
     print('ERPM_Gain ' + name + ' plot success!')
 
+def odom_turn_plots(filename, outdir):
+    df_odom = pd.read_csv(filename)
+
+    name = filename.split("/")[-1]
+    name = name.split("_")[-1]
+    name = name.split(".")[0]
+
+    plt.figure(figsize=(10,8))
+    plt.plot(df_odom['pose.pose.position.x']-df_odom['pose.pose.position.x'].min(), 
+        df_odom['pose.pose.position.y'],'b')
+    plt.xlabel('X in meters')
+    plt.ylabel('Y in meters')
+    plt.title("Servo_to_ERPM_Gain " + name)
+    
+    plt.savefig(os.path.join(outdir, 'Servo_to_ERPM_Gain_' + name + '.png'))
+    print('Servo_to_ERPM_Gain ' + name + ' plot success!')
+
 
 def plot_all(outdir, IMU, Odom):
 
@@ -158,10 +236,14 @@ def plot_all(outdir, IMU, Odom):
     #Plot IMU Mounting
     for filename in IMU['Mounting']:
         mounting_imu_plot(filename, outdir)
+        mounting_yaw_plot(filename, outdir)
 
     #Plot IMU Half Arc
     for d in IMU['Half_Arc']:
         half_arc_yaw_plot(d["f"], d["r"], outdir)
+
+    for filename in IMU['S_Line']:
+        straight_line_yaw_plot(filename, outdir)
 
     #Plot IMU Report
     report_plots(IMU['Report'], outdir)
@@ -169,6 +251,10 @@ def plot_all(outdir, IMU, Odom):
     #Plot Odom Tuning
     for filename in Odom['Vesc']:
         odom_plots(filename, outdir)
+
+    #Plot Odom Arc Tuning
+    for filename in Odom['Servo']:
+        odom_turn_plots(filename, outdir)
 
     return
 
