@@ -25,14 +25,18 @@ The Targets are:
 ### Resources
 In the resources folder:
 
-* `Apollo3` - This will extract the data from the raw ROS bags, clean them, and convert them to csv files to be analyzed
+* `Openlog_Artemis_IMU_Guide` - Guide we developed for SparkFun Openlog Artemis IMU to improve future experience and aid in the installation, setup, and integration with Jetson NX and ROS.
 
-* `Openlog_Artemis_IMU_Guide` - Calibration guide for SparkFun Openlog Artemis IMU
+* `Calibration_OLA_Artemis` - Calibration guide we developed for SparkFun Openlog Artemis IMU to aid in calibration process, analysis for future students/users
 
-* `Setup for Odometry_IMU` - Calibration guide for 1/5th odometry car
+* `Setup for Odometry_IMU` - Guide we developed for the Odometry to aid in tuning process, analysis, and setup of Odometry and VESC interaction to improve experience for future students/users.
+
+* `Apollo3`, `ICM-20948`, `Artemis_Hardware' - Sparkfun Openlog Artemis IMU Hardware Specifications, used to cross reference PIN headers that were needed to be configured correctly during integration process. 
+
 
 
 
 ### Additional ROS package 
-`ros_imu_yaw_pkg` is an ROS package we developed to aid in the integration of the OLA Artemis IMU to ROS. It allows the orientation quaternion readings derived from the IMU to be easily converted into Euler angles and Yaw heading. This is to improve the debugging process within ROS and helps to easily visualize the Yaw heading. This package can be run in parallel as a complement to the main ROS package used to interface with the OLA Artemis IMU and can easily integrate with the rest of your current ROS system in place as a separate node. Overall, this is to aid in the development process within ROS when deriving Yaw Heading from the OLA Artemis IMU. 
+* `ros_imu_yaw_pkg` 
+ROS package we developed to aid in the integration of the OLA Artemis IMU to ROS. It allows the orientation quaternion readings derived from the IMU to be easily converted into Euler angles and Yaw heading. This is to improve the debugging process within ROS and helps to easily visualize the Yaw heading. This package can be run in parallel as a complement to the main ROS package used to interface with the OLA Artemis IMU and can easily integrate with the rest of your current ROS system in place as a separate node. Overall, this is to aid in the development process within ROS when deriving Yaw Heading from the OLA Artemis IMU. 
 
