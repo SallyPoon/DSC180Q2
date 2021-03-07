@@ -2,19 +2,19 @@
 import sys
 import json
 #sys.path.insert(0, 'src')
-from src.test import tester, plotter
+from src.test1 import test, tester, plotter
 from src.conversion import convert
 from src.viz_analysis import plot_all
 
 def main(targets):
     data_cfg = json.load(open('config/conversion.json'))
     viz_cfg = json.load(open('config/viz-params.json'))
-    test_cfg = json.load(open('config/test-params.json'))
-    test_vis_cfg = json.load(open('config/test-vis-params.json'))
+    # test_cfg = json.load(open('config/test-params.json'))
+    # test_vis_cfg = json.load(open('config/test-vis-params.json'))
+    test_cfg = json.load(open('config/test.json'))
     
     if 'test' in targets:
-        imu_data = tester(**test_cfg)
-        vis = plotter(**test_vis_cfg)
+        test(**test_cfg)
         print('Completed. Plots are saved.')
     if 'conversion' in targets:
         convert(**data_cfg)

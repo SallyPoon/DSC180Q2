@@ -63,7 +63,7 @@ def report_plots(filename, outdir):
     plt.xlabel('Time')
     plt.ylabel('Acceleration (m/s^2)')
     plt.savefig(os.path.join(outdir, 'accel_x_plt.png'))
-    print('x-acceleration plot success!')
+    print('X-acceleration plot success!')
     
     plt.figure(figsize=(10,8))
     plt.plot(df_imu['Time'], df_imu['linear_acceleration.y'])
@@ -71,7 +71,7 @@ def report_plots(filename, outdir):
     plt.xlabel('Time')
     plt.ylabel('Acceleration (m/s^2)')
     plt.savefig(os.path.join(outdir, 'accel_y_plot.png'))
-    print('y-acceleration plot success!')
+    print('Y-acceleration plot success!')
     
     plt.figure(figsize=(10,8))
     plt.scatter(df_imu['linear_acceleration.x'], df_imu['linear_acceleration.y'], alpha=0.5)
@@ -87,7 +87,7 @@ def report_plots(filename, outdir):
     plt.xlabel('x')
     plt.ylabel('Frequency')
     plt.savefig(os.path.join(outdir, 'accel_x_hist.png'))
-    print('x-acceleration hist plot written successfully!')
+    print('X-acceleration hist plot written successfully!')
     
     plt.figure(figsize=(10,8))
     plt.hist(df_imu['linear_acceleration.y'], bins=None)
@@ -95,7 +95,7 @@ def report_plots(filename, outdir):
     plt.xlabel('y')
     plt.ylabel('Frequency')
     plt.savefig(os.path.join(outdir, 'accel_y_hist.png'))
-    print('y-acceleration hist plot success!')
+    print('Y-acceleration hist plot success!')
 
     plt.figure(figsize=(10,8))
     plt.plot(df_imu['Time'], df_imu['orientation.x'])
@@ -103,7 +103,7 @@ def report_plots(filename, outdir):
     plt.xlabel('Time')
     plt.ylabel('Quaternion (X)')
     plt.savefig(os.path.join(outdir, 'orient_x_plot.png'))
-    print('orientation x plot success!')
+    print('Orientation x plot success!')
    
     plt.figure(figsize=(10,8))
     plt.plot(df_imu['Time'], df_imu['orientation.y'])
@@ -111,7 +111,7 @@ def report_plots(filename, outdir):
     plt.xlabel('Time')
     plt.ylabel('Quaternion (X)')
     plt.savefig(os.path.join(outdir, 'orient_y_plot.png'))
-    print('orientation y plot success!')
+    print('Orientation y plot success!')
     
     plt.figure(figsize=(10,8))
     plt.plot(df_imu['Time'], df_imu['orientation.z'])
@@ -119,7 +119,7 @@ def report_plots(filename, outdir):
     plt.xlabel('Time')
     plt.ylabel('Quaternion (Z)')
     plt.savefig(os.path.join(outdir, 'orient_z_plot.png'))
-    print('orientation z plot success!')
+    print('Orientation z plot success!')
 
     plt.figure(figsize=(10,8))
     plt.plot(df_imu['Time'], df_imu['orientation.z'])
@@ -127,7 +127,7 @@ def report_plots(filename, outdir):
     plt.xlabel('Time')
     plt.ylabel('Quaternion (W)')
     plt.savefig(os.path.join(outdir, 'orient_w_plot.png'))
-    print('orientation w plot success!')
+    print('Orientation w plot success!')
 
 def odom_plots(filename, outdir):
 
