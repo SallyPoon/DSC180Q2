@@ -7,7 +7,6 @@ For a vehicle to successfully navigate istelf and even race autonomously, it is 
 
 Our aim is to calibrate, tune, and analyze Odometry and IMU data to provide most accurate Position Estimate, Heading, and data readings to achieve high performant autonomous navigation and racing ability.
 
-### Authors:
 Developed by: Pranav Deshmane and Sally Poon
 
 ### Usage
@@ -24,6 +23,15 @@ The Targets are:
 * `test` - This will test the conversion and visualization process with sample data chosen from our raw data
 
 ### Resources
+In the resources folder:
+
+* `Apollo3` - This will extract the data from the raw ROS bags, clean them, and convert them to csv files to be analyzed
+
+* `Openlog_Artemis_IMU_Guide` - Calibration guide for SparkFun Openlog Artemis IMU
+
+* `Setup for Odometry_IMU` - Calibration guide for 1/5th odometry car
+
+
 
 ### Additional ROS package 
 `ros_imu_yaw_pkg` is an ROS package we developed to aid in the integration of the OLA Artemis IMU to ROS. It allows the orientation quaternion readings derived from the IMU to be easily converted into Euler angles and Yaw heading. This is to improve the debugging process within ROS and helps to easily visualize the Yaw heading. This package can be run in parallel as a complement to the main ROS package used to interface with the OLA Artemis IMU and can easily integrate with the rest of your current ROS system in place as a separate node. Overall, this is to aid in the development process within ROS when deriving Yaw Heading from the OLA Artemis IMU. 
