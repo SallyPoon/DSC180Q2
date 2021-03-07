@@ -1,1 +1,0 @@
-<node pkg="ucsd_navigation" type="imu_to_yaw.py" name="imu_to_yaw" output="screen" />

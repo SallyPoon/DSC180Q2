@@ -30,6 +30,6 @@ class IMUYaw:
 
         self.yaw_pub.publish(yaw_deg)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     imu_yaw_converter = IMUYaw()
     rospy.spin()
