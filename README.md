@@ -25,11 +25,14 @@ The Targets are:
 ### Resources
 In the resources folder:
 
-* `Apollo3` - This will extract the data from the raw ROS bags, clean them, and convert them to csv files to be analyzed
+* `Openlog_Artemis_IMU_Guide` - Guide we developed for SparkFun Openlog Artemis IMU to improve future experience and aid in the installation, setup, and integration with Jetson NX and ROS.
 
-* `Openlog_Artemis_IMU_Guide` - Calibration guide for SparkFun Openlog Artemis IMU
+* `Calibration_OLA_Artemis` - Calibration guide we developed for SparkFun Openlog Artemis IMU to aid in calibration process, analysis for future students/users
 
-* `Setup for Odometry_IMU` - Calibration guide for 1/5th odometry car
+* `Setup for Odometry_IMU` - Guide we developed for the Odometry to aid in tuning process, analysis, and setup of Odometry and VESC interaction to improve experience for future students/users.
+
+* `Apollo3`, `ICM-20948`, `Artemis_Hardware' - Sparkfun Openlog Artemis IMU Hardware Specifications, used to cross reference PIN headers that were needed to be configured correctly during integration process. 
+
 
 
 
