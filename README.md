@@ -7,6 +7,7 @@ For a vehicle to successfully navigate istelf and even race autonomously, it is 
 
 Our aim is to calibrate, tune, and analyze Odometry and IMU data to provide most accurate Position Estimate, Heading, and data readings to achieve high performant autonomous navigation and racing ability.
 
+### Authors:
 Developed by: Pranav Deshmane and Sally Poon
 
 ### Usage
