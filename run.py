@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 import json
-#sys.path.insert(0, 'src')
+
 from src.test import test
 from src.conversion import convert
 from src.viz_analysis import plot_all
