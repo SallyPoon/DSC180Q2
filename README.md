@@ -1,6 +1,6 @@
-# DSC180A02Group4
+# Autonomous Vehicles Capstone: Odometry and IMU 
 
-We are Team 4 in the Autonomous Vehicles Data Science Capstone Project. Our project revolves around the IMU, Odometry efforts while we collectively work to build a 1/5 scale racing autonomous vehicle.
+We are Team 4 in the Autonomous Vehicles Data Science Capstone Project. Our project revolves around the IMU, Odometry efforts while we collectively work to build a 1/5 scale racing autonomous vehicle. The goal for our project was to calibrate, tune, and analyze Odometry and IMU data to obtain the most accurate position estimate, compass heading, and data readings to support the other subteams that would utilize these measurements in the navigation stack.
 
 Developed by: Pranav Deshmane and Sally Poon
 
