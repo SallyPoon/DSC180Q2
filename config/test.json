@@ -25,7 +25,7 @@
 
 			"Vesc": ["data/testclean/vesc_odom/straight_3412.csv"],
 			
-			"Servo": ["data/clean/vesc_odom/vesc_servo_gain_m1_1v2.csv"]
+			"Servo": ["data/testclean/vesc_odom/vesc_servo_gain_m1_1v2.csv"]
 
 		    }
 
