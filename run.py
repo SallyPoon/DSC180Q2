@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 import sys
 import json
-sys.path.insert(0, 'src')
-from test import tester, plotter
-from conversion import convert
-from eda import plots
+#sys.path.insert(0, 'src')
+from src.test import tester, plotter
+from src.conversion import convert
+from src.viz_analysis import plot_all
 
 def main(targets):
     data_cfg = json.load(open('config/conversion.json'))
-    eda_cfg = json.load(open('config/eda-params.json'))
+    viz_cfg = json.load(open('config/viz-params.json'))
     test_cfg = json.load(open('config/test-params.json'))
     test_vis_cfg = json.load(open('config/test-vis-params.json'))
     
@@ -19,8 +19,8 @@ def main(targets):
     if 'conversion' in targets:
         convert(**data_cfg)
         print('Raw Data Bags converted to csv')
-    if 'eda' in targets:
-        data = plots(**eda_cfg)
+    if 'viz_analysis' in targets:
+        plot_all(**viz_cfg)
         print('Data plotted')
     return
 

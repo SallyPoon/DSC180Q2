@@ -1,6 +1,0 @@
-{
-	"imu_data": "data/clean/imu_data_test.csv",
-	"yaw_data": "data/clean/yaw_data_test.csv", 
-	"odom_data": "data/clean/odom_data_test.csv", 
-	"outdir": "data/plots"
-}
