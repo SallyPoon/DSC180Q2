@@ -31,7 +31,7 @@ In the resources folder:
 
 * `Setup for Odometry_IMU` - Guide we developed for the Odometry to aid in tuning process, analysis, and setup of Odometry and VESC interaction to improve experience for future students/users.
 
-* `Apollo3`, `ICM-20948`, `Artemis_Hardware' - Sparkfun Openlog Artemis IMU Hardware Specifications, used to cross reference PIN headers that were needed to be configured correctly during integration process. 
+* `Apollo3`, `ICM-20948`, `Artemis_Hardware` - Sparkfun Openlog Artemis IMU Hardware Specifications, used to cross reference PIN headers that were needed to be configured correctly during integration process. 
 
 
 
